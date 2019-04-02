@@ -10,37 +10,63 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    // MARK: - Properties
     var window: UIWindow?
+    
+    lazy var logTextView: LogTextView = {
+        let logTextView = LogTextView(frame: .zero)
+        logTextView.layer.zPosition = .greatestFiniteMagnitude
+        return logTextView
+    }()
 
-
+    // MARK: - App lifecycle
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        setupWindow()
+        setupConfigure()
+        setupLogTextView()
+        printLog("application(_:, didFinishLaunchingWithOptions:)")
+        
         return true
     }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    
+    // MARK: - Private method
+    private func setupWindow() {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        guard let window = window else { fatalError() }
+        window.rootViewController = LaunchViewController()
+        window.makeKeyAndVisible()
     }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    private func setupConfigure() {
+        LogLevelConfigurator.shared.configure([.log, .error, .warn, .debug, .info, .verbose], shouldShow: true, shouldCache: true)
+        ThemeConfigurator.shared.configure(navigationBarBarTintColor: .appleBlue,
+                                           navigationBarTintColor: .white,
+                                           navigationBarTitleTextForegroundColor: .white,
+                                           tabBarBarTintColor: .appleBlue,
+                                           tabBarTintColor: .white)
     }
+    
+    private func setupLogTextView() {
+//        #if DEBUG
 
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        guard let window = window else { return }
+        
+        if #available(iOS 11.0, *) {
+            window.addSubview(logTextView, constraints: [
+                UIView.constraintEqual(from: \UIView.topAnchor, to: \UIView.safeAreaLayoutGuide.topAnchor, constant: .defaultMargin),
+                UIView.constraintEqual(from: \UIView.leadingAnchor, to: \UIView.safeAreaLayoutGuide.leadingAnchor, constant: .defaultMargin),
+                UIView.constraintEqual(from: \UIView.bottomAnchor, to: \UIView.safeAreaLayoutGuide.bottomAnchor, constant: .defaultMargin),
+                UIView.constraintEqual(from: \UIView.trailingAnchor, to: \UIView.safeAreaLayoutGuide.trailingAnchor, constant: .defaultMargin)
+                ])
+        } else {
+            window.addSubview(logTextView, constraints: [
+                UIView.constraintEqual(from: \UIView.topAnchor, to: \UIView.topAnchor, constant: .defaultMargin),
+                UIView.constraintEqual(from: \UIView.leadingAnchor, to: \UIView.leadingAnchor, constant: .defaultMargin),
+                UIView.constraintEqual(from: \UIView.bottomAnchor, to: \UIView.bottomAnchor, constant: .defaultMargin),
+                UIView.constraintEqual(from: \UIView.trailingAnchor, to: \UIView.trailingAnchor, constant: .defaultMargin)
+            ])
+        }
+        
+//        #endif
     }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-
 }
-
