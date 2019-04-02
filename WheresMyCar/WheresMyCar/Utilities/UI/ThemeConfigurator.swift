@@ -8,31 +8,72 @@
 
 import UIKit
 
+struct NavigationBarStyle {
+    var isPrefersLargeTitles = false
+    var isTranslucent = true
+    var barTintColor: UIColor?
+    var tintColor: UIColor?
+    var titleTextForegroundColor: UIColor?
+}
+
+struct TabBarStyle {
+    var isTranslucent = true
+    var barTintColor: UIColor?
+    var tintColor: UIColor?
+}
+
 class ThemeConfigurator {
     // MARK: - Properties
     static let shared = ThemeConfigurator()
-    private(set) var navigationBarBarTintColor: UIColor?
-    private(set) var navigationBarTintColor: UIColor?
-    private(set) var navigationBarTitleTextForegroundColor: UIColor!
-    private(set) var tabBarBarTintColor: UIColor?
-    private(set) var tabBarTintColor: UIColor?
+    private(set) var navigationBarStyle = NavigationBarStyle()
+    private(set) var tabBarStyle = TabBarStyle()
     
     // MARK: - Initializer
     private init() {  }
     
-    func configure(navigationBarBarTintColor: UIColor, navigationBarTintColor: UIColor, navigationBarTitleTextForegroundColor: UIColor, tabBarBarTintColor: UIColor, tabBarTintColor: UIColor) {
-        configure(navigationBarBarTintColor: navigationBarBarTintColor, navigationBarTintColor: navigationBarTintColor, navigationBarTitleTextForegroundColor: navigationBarTitleTextForegroundColor)
-        configure(tabBarBarTintColor: tabBarBarTintColor, tabBarTintColor: tabBarTintColor)
+    func configure(navigationBarStyle: NavigationBarStyle, tabBarStyle: TabBarStyle) {
+        configure(isPrefersLargeTitles: navigationBarStyle.isPrefersLargeTitles,
+                  isTranslucent: navigationBarStyle.isTranslucent,
+                  barTintColor: navigationBarStyle.barTintColor,
+                  tintColor: navigationBarStyle.tintColor,
+                  titleTextForegroundColor: navigationBarStyle.titleTextForegroundColor)
+        configure(isTranslucent: tabBarStyle.isTranslucent,
+                  barTintColor: tabBarStyle.barTintColor,
+                  tintColor: tabBarStyle.tintColor)
     }
     
-    func configure(navigationBarBarTintColor: UIColor, navigationBarTintColor: UIColor, navigationBarTitleTextForegroundColor: UIColor) {
-        self.navigationBarBarTintColor = navigationBarBarTintColor
-        self.navigationBarTintColor = navigationBarTintColor
-        self.navigationBarTitleTextForegroundColor = navigationBarTitleTextForegroundColor
+    func configure(isPrefersLargeTitles: Bool = false,
+                   isTranslucent: Bool = true,
+                   barTintColor: UIColor?,
+                   tintColor: UIColor?,
+                   titleTextForegroundColor: UIColor?) {
+        navigationBarStyle.isTranslucent = isTranslucent
+        navigationBarStyle.isPrefersLargeTitles = isPrefersLargeTitles
+        
+        if let barTintColor = barTintColor {
+            navigationBarStyle.barTintColor = barTintColor
+        }
+        
+        if let tintColor = tintColor {
+            navigationBarStyle.tintColor = tintColor
+        }
+        
+        if let titleTextForegroundColor = titleTextForegroundColor {
+            navigationBarStyle.titleTextForegroundColor = titleTextForegroundColor
+        }
     }
     
-    func configure(tabBarBarTintColor: UIColor, tabBarTintColor: UIColor) {
-        self.tabBarBarTintColor = tabBarBarTintColor
-        self.tabBarTintColor = tabBarTintColor
+    func configure(isTranslucent: Bool = true,
+                   barTintColor: UIColor?,
+                   tintColor: UIColor?) {
+        tabBarStyle.isTranslucent = isTranslucent
+        
+        if let barTintColor = barTintColor {
+            tabBarStyle.barTintColor = barTintColor
+        }
+        
+        if let tintColor = tintColor {
+            tabBarStyle.tintColor = tintColor
+        }
     }
 }

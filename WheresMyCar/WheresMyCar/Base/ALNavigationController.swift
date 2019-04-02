@@ -18,10 +18,21 @@ class ALNavigationController: UINavigationController {
     
     // MARK: - Private method
     private func setupUI() {
-        navigationBar.isTranslucent = false
         let themeConfigurator = ThemeConfigurator.shared
-        navigationBar.barTintColor = themeConfigurator.navigationBarBarTintColor
-        navigationBar.tintColor = themeConfigurator.navigationBarTintColor
-        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: themeConfigurator.navigationBarTitleTextForegroundColor]
+        
+        navigationBar.isTranslucent = themeConfigurator.navigationBarStyle.isTranslucent
+        navigationBar.barTintColor = themeConfigurator.navigationBarStyle.barTintColor
+        navigationBar.tintColor = themeConfigurator.navigationBarStyle.tintColor
+        
+        if #available(iOS 11.0, *) {
+            navigationBar.prefersLargeTitles = themeConfigurator.navigationBarStyle.isPrefersLargeTitles
+            if let navigationBarTitleTextForegroundColor = themeConfigurator.navigationBarStyle.titleTextForegroundColor {
+                navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: navigationBarTitleTextForegroundColor]
+            }
+        } else {
+            if let navigationBarTitleTextForegroundColor = themeConfigurator.navigationBarStyle.titleTextForegroundColor {
+                navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: navigationBarTitleTextForegroundColor]
+            }
+        }
     }
 }

@@ -39,11 +39,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setupConfigure() {
         LogLevelConfigurator.shared.configure([.log, .error, .warn, .debug, .info, .verbose], shouldShow: true, shouldCache: true)
-        ThemeConfigurator.shared.configure(navigationBarBarTintColor: .appleBlue,
-                                           navigationBarTintColor: .white,
-                                           navigationBarTitleTextForegroundColor: .white,
-                                           tabBarBarTintColor: .appleBlue,
-                                           tabBarTintColor: .white)
+        ThemeConfigurator.shared.configure(navigationBarStyle: NavigationBarStyle(isPrefersLargeTitles: true,
+                                                                                  isTranslucent: false,
+                                                                                  barTintColor: .appleBlue,
+                                                                                  tintColor: .white,
+                                                                                  titleTextForegroundColor: .white),
+                                           tabBarStyle: TabBarStyle(isTranslucent: false,
+                                                                    barTintColor: .appleBlue,
+                                                                    tintColor: .white))
     }
     
     private func setupLogTextView() {

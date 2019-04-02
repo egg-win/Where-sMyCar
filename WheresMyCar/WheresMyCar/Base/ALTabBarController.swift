@@ -18,9 +18,9 @@ class ALTabBarController: UITabBarController {
     
     // MARK: - Private method
     private func setupUI() {
-        tabBar.isTranslucent = false
         let themeConfigurator = ThemeConfigurator.shared
-        tabBar.barTintColor = themeConfigurator.tabBarBarTintColor
-        tabBar.tintColor = themeConfigurator.tabBarTintColor
+        tabBar.isTranslucent = themeConfigurator.tabBarStyle.isTranslucent
+        tabBar.barTintColor = themeConfigurator.tabBarStyle.barTintColor
+        tabBar.tintColor = themeConfigurator.tabBarStyle.tintColor
     }
 }

@@ -17,8 +17,12 @@ class LaunchViewController: BaseViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
             guard let strongSelf = self else { return }
             
-            let navigationController = ALNavigationController(rootViewController: MainViewController())
-            strongSelf.present(navigationController, animated: true, completion: nil)
+            let tabBarController = ALTabBarController()
+            tabBarController.setupViewControllers([
+                ViewControllerInfo(hasNavigation: true, viewController: PinCarViewController(), tabBarItem: UITabBarItem(tabBarSystemItem: .bookmarks, tag: 0)),
+                ViewControllerInfo(hasNavigation: true, viewController: SettingsViewController(), tabBarItem: UITabBarItem(tabBarSystemItem: .contacts, tag: 1))
+            ])
+            strongSelf.present(tabBarController, animated: true, completion: nil)
         }
     }
 }

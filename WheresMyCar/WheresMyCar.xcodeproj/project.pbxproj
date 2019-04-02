@@ -27,7 +27,6 @@
 		C9878C17225349A6005297FD /* ALNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9878C16225349A6005297FD /* ALNavigationController.swift */; };
 		C9878C1922534A6A005297FD /* ALTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9878C1822534A6A005297FD /* ALTabBarController.swift */; };
 		C9878C1C22534AFB005297FD /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9878C1B22534AFB005297FD /* LaunchViewController.swift */; };
-		C9878C1E22534BEE005297FD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9878C1D22534BEE005297FD /* MainViewController.swift */; };
 		C9878C2122534DA4005297FD /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9878C2022534DA4005297FD /* LocalStorageManager.swift */; };
 		C9878C2422534F25005297FD /* TimeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9878C2322534F25005297FD /* TimeCalculator.swift */; };
 		C9878C2722535067005297FD /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9878C2622535067005297FD /* DeviceInfo.swift */; };
@@ -40,6 +39,8 @@
 		C9878C3622535B8A005297FD /* UITabBarControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9878C3522535B8A005297FD /* UITabBarControllerExtension.swift */; };
 		C9878C3822535C29005297FD /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9878C3722535C29005297FD /* UITableViewExtension.swift */; };
 		C9878C3A22535C7C005297FD /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9878C3922535C7C005297FD /* UIViewControllerExtension.swift */; };
+		C9878C3C225360A7005297FD /* PinCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9878C3B225360A7005297FD /* PinCarViewController.swift */; };
+		C9878C3E225360BA005297FD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9878C3D225360BA005297FD /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,7 +68,6 @@
 		C9878C16225349A6005297FD /* ALNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALNavigationController.swift; sourceTree = "<group>"; };
 		C9878C1822534A6A005297FD /* ALTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALTabBarController.swift; sourceTree = "<group>"; };
 		C9878C1B22534AFB005297FD /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
-		C9878C1D22534BEE005297FD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C9878C2022534DA4005297FD /* LocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
 		C9878C2322534F25005297FD /* TimeCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCalculator.swift; sourceTree = "<group>"; };
 		C9878C2622535067005297FD /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
@@ -80,6 +80,8 @@
 		C9878C3522535B8A005297FD /* UITabBarControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarControllerExtension.swift; sourceTree = "<group>"; };
 		C9878C3722535C29005297FD /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		C9878C3922535C7C005297FD /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		C9878C3B225360A7005297FD /* PinCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCarViewController.swift; sourceTree = "<group>"; };
+		C9878C3D225360BA005297FD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,7 +238,8 @@
 			isa = PBXGroup;
 			children = (
 				C9878C1B22534AFB005297FD /* LaunchViewController.swift */,
-				C9878C1D22534BEE005297FD /* MainViewController.swift */,
+				C9878C3B225360A7005297FD /* PinCarViewController.swift */,
+				C9878C3D225360BA005297FD /* SettingsViewController.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -390,12 +393,14 @@
 				C9878C1C22534AFB005297FD /* LaunchViewController.swift in Sources */,
 				C9878C132253481B005297FD /* BaseViewController.swift in Sources */,
 				C9878C3422535AF8005297FD /* UIImageExtension.swift in Sources */,
+				C9878C3E225360BA005297FD /* SettingsViewController.swift in Sources */,
 				C9878BFD22530C30005297FD /* PrintLog.swift in Sources */,
 				C9878C2422534F25005297FD /* TimeCalculator.swift in Sources */,
 				C9878C2E22535A19005297FD /* UIApplicationExtension.swift in Sources */,
 				C9878C3622535B8A005297FD /* UITabBarControllerExtension.swift in Sources */,
 				C9878C0A22531533005297FD /* FileManagerExtension.swift in Sources */,
 				C9878C0F2253339E005297FD /* UIViewExtension.swift in Sources */,
+				C9878C3C225360A7005297FD /* PinCarViewController.swift in Sources */,
 				C9878C2722535067005297FD /* DeviceInfo.swift in Sources */,
 				C9878C0D22533157005297FD /* ThemeConfigurator.swift in Sources */,
 				C9878C2A2253523C005297FD /* MathHelper.swift in Sources */,
@@ -409,7 +414,6 @@
 				C9878C3022535A8B005297FD /* UICollectionViewExtension.swift in Sources */,
 				C979AB8E22195FE6009A2531 /* AppDelegate.swift in Sources */,
 				C9878C1122534195005297FD /* CGFloatExtension.swift in Sources */,
-				C9878C1E22534BEE005297FD /* MainViewController.swift in Sources */,
 				C9878C3822535C29005297FD /* UITableViewExtension.swift in Sources */,
 				C9878BFB22530AD1005297FD /* UIColorExtension.swift in Sources */,
 				C9878C17225349A6005297FD /* ALNavigationController.swift in Sources */,
