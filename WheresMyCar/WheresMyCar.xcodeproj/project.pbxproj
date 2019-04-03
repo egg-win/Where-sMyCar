@@ -41,6 +41,12 @@
 		C9878C3A22535C7C005297FD /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9878C3922535C7C005297FD /* UIViewControllerExtension.swift */; };
 		C9878C3C225360A7005297FD /* PinCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9878C3B225360A7005297FD /* PinCarViewController.swift */; };
 		C9878C3E225360BA005297FD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9878C3D225360BA005297FD /* SettingsViewController.swift */; };
+		C9878C4122545E0A005297FD /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9878C4022545E0A005297FD /* AuthManager.swift */; };
+		C9878C4322546963005297FD /* CLLocationManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9878C4222546963005297FD /* CLLocationManagerExtension.swift */; };
+		C99AC8F6225480E300575216 /* MKMapViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99AC8F5225480E300575216 /* MKMapViewExtension.swift */; };
+		C99AC8F822548DEC00575216 /* CLGeocoderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99AC8F722548DEC00575216 /* CLGeocoderExtension.swift */; };
+		C99AC8FA225496C900575216 /* LayerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99AC8F9225496C900575216 /* LayerConfigurator.swift */; };
+		C99AC8FC22549EE500575216 /* ALLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99AC8FB22549EE500575216 /* ALLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +88,12 @@
 		C9878C3922535C7C005297FD /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		C9878C3B225360A7005297FD /* PinCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCarViewController.swift; sourceTree = "<group>"; };
 		C9878C3D225360BA005297FD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C9878C4022545E0A005297FD /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		C9878C4222546963005297FD /* CLLocationManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationManagerExtension.swift; sourceTree = "<group>"; };
+		C99AC8F5225480E300575216 /* MKMapViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapViewExtension.swift; sourceTree = "<group>"; };
+		C99AC8F722548DEC00575216 /* CLGeocoderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLGeocoderExtension.swift; sourceTree = "<group>"; };
+		C99AC8F9225496C900575216 /* LayerConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerConfigurator.swift; sourceTree = "<group>"; };
+		C99AC8FB22549EE500575216 /* ALLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				C9878C122253481B005297FD /* BaseViewController.swift */,
+				C99AC8FB22549EE500575216 /* ALLabel.swift */,
 				C9878C16225349A6005297FD /* ALNavigationController.swift */,
 				C9878C1822534A6A005297FD /* ALTabBarController.swift */,
 			);
@@ -167,6 +180,7 @@
 		C9878BF622530A03005297FD /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				C9878C3F22545DF9005297FD /* Auth */,
 				C9878C2522535058005297FD /* Device */,
 				C9878C0022530F1E005297FD /* Log */,
 				C9878C282253522A005297FD /* Math */,
@@ -212,6 +226,9 @@
 		C9878C06225310FA005297FD /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C99AC8F722548DEC00575216 /* CLGeocoderExtension.swift */,
+				C9878C4222546963005297FD /* CLLocationManagerExtension.swift */,
+				C99AC8F5225480E300575216 /* MKMapViewExtension.swift */,
 				C9878C2B2253598E005297FD /* UIAlertControllerExtension.swift */,
 				C9878C2D22535A19005297FD /* UIApplicationExtension.swift */,
 				C9878C2F22535A8B005297FD /* UICollectionViewExtension.swift */,
@@ -230,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				C9878C0C22533157005297FD /* ThemeConfigurator.swift */,
+				C99AC8F9225496C900575216 /* LayerConfigurator.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -274,6 +292,14 @@
 				C9878C292253523C005297FD /* MathHelper.swift */,
 			);
 			path = Math;
+			sourceTree = "<group>";
+		};
+		C9878C3F22545DF9005297FD /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				C9878C4022545E0A005297FD /* AuthManager.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,6 +415,7 @@
 				C9878C2C2253598E005297FD /* UIAlertControllerExtension.swift in Sources */,
 				C9878C3222535ADB005297FD /* UIDeviceExtension.swift in Sources */,
 				C9878C3A22535C7C005297FD /* UIViewControllerExtension.swift in Sources */,
+				C99AC8F6225480E300575216 /* MKMapViewExtension.swift in Sources */,
 				C9878C1922534A6A005297FD /* ALTabBarController.swift in Sources */,
 				C9878C1C22534AFB005297FD /* LaunchViewController.swift in Sources */,
 				C9878C132253481B005297FD /* BaseViewController.swift in Sources */,
@@ -403,14 +430,19 @@
 				C9878C3C225360A7005297FD /* PinCarViewController.swift in Sources */,
 				C9878C2722535067005297FD /* DeviceInfo.swift in Sources */,
 				C9878C0D22533157005297FD /* ThemeConfigurator.swift in Sources */,
+				C99AC8FC22549EE500575216 /* ALLabel.swift in Sources */,
 				C9878C2A2253523C005297FD /* MathHelper.swift in Sources */,
 				C9878C0222530F6B005297FD /* DateExtension.swift in Sources */,
 				C9878C04225310C2005297FD /* DateFormatterExtension.swift in Sources */,
 				C9878C2122534DA4005297FD /* LocalStorageManager.swift in Sources */,
+				C99AC8FA225496C900575216 /* LayerConfigurator.swift in Sources */,
 				C9878C152253486D005297FD /* NSObjectExtension.swift in Sources */,
 				C9878BFF22530D58005297FD /* LogLevelConfigurator.swift in Sources */,
 				C9878C08225314C9005297FD /* StringExtension.swift in Sources */,
 				C9878BF822530A1E005297FD /* LogTextView.swift in Sources */,
+				C9878C4122545E0A005297FD /* AuthManager.swift in Sources */,
+				C99AC8F822548DEC00575216 /* CLGeocoderExtension.swift in Sources */,
+				C9878C4322546963005297FD /* CLLocationManagerExtension.swift in Sources */,
 				C9878C3022535A8B005297FD /* UICollectionViewExtension.swift in Sources */,
 				C979AB8E22195FE6009A2531 /* AppDelegate.swift in Sources */,
 				C9878C1122534195005297FD /* CGFloatExtension.swift in Sources */,

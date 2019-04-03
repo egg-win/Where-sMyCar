@@ -38,8 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setupConfigure() {
-        LogLevelConfigurator.shared.configure([.log, .error, .warn, .debug, .info, .verbose], shouldShow: true, shouldCache: true)
-        ThemeConfigurator.shared.configure(navigationBarStyle: NavigationBarStyle(isPrefersLargeTitles: true,
+        LogLevelConfigurator.shared.configure([.log, .error, .warn, .debug, .info, .verbose], shouldShow: false, shouldCache: false)
+        ThemeConfigurator.shared.configure(navigationBarStyle: NavigationBarStyle(isPrefersLargeTitles: false,
                                                                                   isTranslucent: false,
                                                                                   barTintColor: .appleBlue,
                                                                                   tintColor: .white,
@@ -56,17 +56,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if #available(iOS 11.0, *) {
             window.addSubview(logTextView, constraints: [
-                UIView.constraintEqual(from: \UIView.topAnchor, to: \UIView.safeAreaLayoutGuide.topAnchor, constant: .defaultMargin),
-                UIView.constraintEqual(from: \UIView.leadingAnchor, to: \UIView.safeAreaLayoutGuide.leadingAnchor, constant: .defaultMargin),
-                UIView.constraintEqual(from: \UIView.bottomAnchor, to: \UIView.safeAreaLayoutGuide.bottomAnchor, constant: .defaultMargin),
-                UIView.constraintEqual(from: \UIView.trailingAnchor, to: \UIView.safeAreaLayoutGuide.trailingAnchor, constant: .defaultMargin)
+                UIView.anchorConstraintEqual(from: \UIView.topAnchor, to: \UIView.safeAreaLayoutGuide.topAnchor, constant: .defaultMargin),
+                UIView.anchorConstraintEqual(from: \UIView.leadingAnchor, to: \UIView.safeAreaLayoutGuide.leadingAnchor, constant: .defaultMargin),
+                UIView.anchorConstraintEqual(from: \UIView.bottomAnchor, to: \UIView.safeAreaLayoutGuide.bottomAnchor, constant: CGFloat.defaultMargin.negativeValue),
+                UIView.anchorConstraintEqual(from: \UIView.trailingAnchor, to: \UIView.safeAreaLayoutGuide.trailingAnchor, constant: CGFloat.defaultMargin.negativeValue)
                 ])
         } else {
             window.addSubview(logTextView, constraints: [
-                UIView.constraintEqual(from: \UIView.topAnchor, to: \UIView.topAnchor, constant: .defaultMargin),
-                UIView.constraintEqual(from: \UIView.leadingAnchor, to: \UIView.leadingAnchor, constant: .defaultMargin),
-                UIView.constraintEqual(from: \UIView.bottomAnchor, to: \UIView.bottomAnchor, constant: .defaultMargin),
-                UIView.constraintEqual(from: \UIView.trailingAnchor, to: \UIView.trailingAnchor, constant: .defaultMargin)
+                UIView.anchorConstraintEqual(with: \UIView.topAnchor, constant: .defaultMargin),
+                UIView.anchorConstraintEqual(with: \UIView.leadingAnchor, constant: .defaultMargin),
+                UIView.anchorConstraintEqual(with: \UIView.bottomAnchor, constant: CGFloat.defaultMargin.negativeValue),
+                UIView.anchorConstraintEqual(with: \UIView.trailingAnchor, constant: CGFloat.defaultMargin.negativeValue)
             ])
         }
         

@@ -31,6 +31,7 @@ class ThemeConfigurator {
     // MARK: - Initializer
     private init() {  }
     
+    // MARK: - Public method
     func configure(navigationBarStyle: NavigationBarStyle, tabBarStyle: TabBarStyle) {
         configure(isPrefersLargeTitles: navigationBarStyle.isPrefersLargeTitles,
                   isTranslucent: navigationBarStyle.isTranslucent,

@@ -24,15 +24,17 @@ class ALNavigationController: UINavigationController {
         navigationBar.barTintColor = themeConfigurator.navigationBarStyle.barTintColor
         navigationBar.tintColor = themeConfigurator.navigationBarStyle.tintColor
         
+        if themeConfigurator.navigationBarStyle.isTranslucent == false {
+            // Hide navigation bar underline.
+            navigationBar.shadowImage = UIImage()
+        }
+        
+        guard let navigationBarTitleTextForegroundColor = themeConfigurator.navigationBarStyle.titleTextForegroundColor else { return }
+        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: navigationBarTitleTextForegroundColor]
+        
         if #available(iOS 11.0, *) {
             navigationBar.prefersLargeTitles = themeConfigurator.navigationBarStyle.isPrefersLargeTitles
-            if let navigationBarTitleTextForegroundColor = themeConfigurator.navigationBarStyle.titleTextForegroundColor {
-                navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: navigationBarTitleTextForegroundColor]
-            }
-        } else {
-            if let navigationBarTitleTextForegroundColor = themeConfigurator.navigationBarStyle.titleTextForegroundColor {
-                navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: navigationBarTitleTextForegroundColor]
-            }
+            navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: navigationBarTitleTextForegroundColor]
         }
     }
 }

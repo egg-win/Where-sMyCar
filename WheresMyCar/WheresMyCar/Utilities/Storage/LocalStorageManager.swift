@@ -9,21 +9,57 @@
 import Foundation
 
 class LocalStorageManager {
+    // MARK: - Properties
     static let shared = LocalStorageManager()
     private let userDefaults = UserDefaults.standard
     
-    // MARK: - Public method
-    func stringValue() -> String? {
-        return string(forKey: "string")
+    private enum UserDefaultsKey: String {
+        case latitude
+        case longitude
     }
     
-    func setStringValue(_ stringValue: String) {
-        userDefaults.set(stringValue, forKey: stringValue)
+    // MARK: - Public method
+    func location() -> (latitude: Double?, longitude: Double?) {
+        guard let latitude = latitude(), let longitude = longitude() else { return (nil, nil) }
+        return (latitude, longitude)
+    }
+    
+    func removeLocation() {
+        remove(forKey: .latitude)
+        remove(forKey: .longitude)
+    }
+    
+    func latitude() -> Double? {
+        return double(forKey: .latitude)
+    }
+    
+    func setLatitude(_ latitude: Double) {
+        set(latitude, forKey: .latitude)
+    }
+    
+    func longitude() -> Double? {
+        return double(forKey: .longitude)
+    }
+    
+    func setLongitude(_ longitude: Double) {
+        set(longitude, forKey: .longitude)
     }
     
     // MARK: - Private method
-    private func string(forKey key: String) -> String? {
-        guard let stringValue = userDefaults.string(forKey: key) else { return nil }
+    private func string(forKey key: UserDefaultsKey) -> String? {
+        guard let stringValue = userDefaults.string(forKey: key.rawValue) else { return nil }
         return stringValue
+    }
+    
+    private func double(forKey key: UserDefaultsKey) -> Double? {
+        return userDefaults.double(forKey: key.rawValue)
+    }
+    
+    private func set(_ value: Any, forKey key: UserDefaultsKey) {
+        userDefaults.set(value, forKey: key.rawValue)
+    }
+    
+    private func remove(forKey key: UserDefaultsKey) {
+        userDefaults.removeObject(forKey: key.rawValue)
     }
 }

@@ -28,17 +28,23 @@ extension UIView {
         addConstraints(constraints.map { $0(subview, self) })
     }
     
-    static func constraintEqual<LayoutAnchor, Axis>(from subViewKeyPath: KeyPath<UIView, LayoutAnchor>, to parentViewKeyPath: KeyPath<UIView, LayoutAnchor>, constant: CGFloat = 0.0) -> Constraint where LayoutAnchor: NSLayoutAnchor<Axis> {
+    static func anchorConstraintEqual<LayoutAnchor, Axis>(from subViewKeyPath: KeyPath<UIView, LayoutAnchor>, to parentViewKeyPath: KeyPath<UIView, LayoutAnchor>, constant: CGFloat = 0.0) -> Constraint where LayoutAnchor: NSLayoutAnchor<Axis> {
         return { subView, parentView in
             subView[keyPath: subViewKeyPath].constraint(equalTo: parentView[keyPath: parentViewKeyPath], constant: constant)
         }
     }
     
-    static func constraintEqual<LayoutAnchor, Axis>(to viewKeyPath: KeyPath<UIView, LayoutAnchor>, constant: CGFloat = 0.0) -> Constraint where LayoutAnchor: NSLayoutAnchor<Axis> {
-        return constraintEqual(from: viewKeyPath, to: viewKeyPath, constant: constant)
+    static func anchorConstraintEqual<LayoutAnchor, Axis>(with viewKeyPath: KeyPath<UIView, LayoutAnchor>, constant: CGFloat = 0.0) -> Constraint where LayoutAnchor: NSLayoutAnchor<Axis> {
+        return anchorConstraintEqual(from: viewKeyPath, to: viewKeyPath, constant: constant)
     }
     
-    static func constraintEqual<LayoutAnchor>(to viewKeyPath: KeyPath<UIView, LayoutAnchor>, constant: CGFloat) -> Constraint where LayoutAnchor: NSLayoutDimension {
+    static func dimensionConstraintEqual<LayoutAnchor>(withViewKeyPath1 viewKeyPath1: KeyPath<UIView, LayoutAnchor>, viewKeyPath2: KeyPath<UIView, LayoutAnchor>, multiplier: CGFloat = 1.0) -> Constraint where LayoutAnchor: NSLayoutDimension {
+        return { subView, _ in
+            subView[keyPath: viewKeyPath1].constraint(equalTo: subView[keyPath: viewKeyPath2], multiplier: multiplier)
+        }
+    }
+    
+    static func dimensionConstraintEqual<LayoutAnchor>(with viewKeyPath: KeyPath<UIView, LayoutAnchor>, constant: CGFloat) -> Constraint where LayoutAnchor: NSLayoutDimension {
         return { subview, _ in
             subview[keyPath: viewKeyPath].constraint(equalToConstant: constant)
         }

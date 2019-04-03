@@ -23,7 +23,13 @@ extension CGFloat {
     // customize
     static let zero: CGFloat = 0.0
     static let defaultMargin: CGFloat = 8.0
+    static let defaultViewHeight: CGFloat = 44.0
     static let defaultCellRowHeight: CGFloat = 44.0
     static let defaultButtonHeight: CGFloat = 44.0
+    static let largeButtonHeight: CGFloat = .defaultButtonHeight * 1.5
     static let defaultCornerRadius: CGFloat = 5.0
+    
+    var negativeValue: CGFloat {
+        return (-1.0 * self)
+    }
 }

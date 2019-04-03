@@ -19,6 +19,7 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         printLog("\(self.className) viewDidLoad")
         
+        setupAuth()
         setupUI()
         setupData()
     }
@@ -59,6 +60,10 @@ class BaseViewController: UIViewController {
     }
     
     // MARK: - Public method
+    func setupAuth() {
+        printLog("\(self.className) setupAuth")
+    }
+    
     func setupUI() {
         printLog("\(self.className) setupUI")
         
