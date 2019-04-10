@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+extension Array {
+    func reject(_ predicate: (Element) -> Bool) -> [Element] {
+        return filter { !predicate($0) }
+    }
+    
+    func allMatch(_ predicate: (Element) -> Bool) -> Bool {
+        return !contains { !predicate($0) }
+    }
+}

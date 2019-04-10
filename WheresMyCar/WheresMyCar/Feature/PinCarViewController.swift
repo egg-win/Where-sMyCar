@@ -179,7 +179,6 @@ class PinCarViewController: BaseViewController {
     private func navigate() {
         printLog("navigate", level: .log)
         
-        // TODO: navigate user to car
         guard let currentLocationCoordinate = currentLocation?.coordinate,
             let carLocationCoordinate = carLocationCoordinate else { return }
         
@@ -209,6 +208,7 @@ class PinCarViewController: BaseViewController {
         carLocationCoordinate = nil
         LocalStorageManager.shared.removeLocation()
         mapView.removeAnnotations(mapView.annotations)
+        mapView.removeOverlays(mapView.overlays)
         
         UIAlertController.remindAlert(title: "恭喜", message: "車開走囉")
         
