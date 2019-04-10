@@ -47,6 +47,10 @@
 		C99AC8F822548DEC00575216 /* CLGeocoderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99AC8F722548DEC00575216 /* CLGeocoderExtension.swift */; };
 		C99AC8FA225496C900575216 /* LayerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99AC8F9225496C900575216 /* LayerConfigurator.swift */; };
 		C99AC8FC22549EE500575216 /* ALLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99AC8FB22549EE500575216 /* ALLabel.swift */; };
+		C99AC8FE225B3D4B00575216 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99AC8FD225B3D4B00575216 /* ArrayExtension.swift */; };
+		C99AC900225B502B00575216 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99AC8FF225B502B00575216 /* DictionaryExtension.swift */; };
+		C99AC90C225C4AAC00575216 /* SequenceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99AC90B225C4AAC00575216 /* SequenceExtension.swift */; };
+		C99AC916225D8A1700575216 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99AC915225D8A1700575216 /* APIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +98,10 @@
 		C99AC8F722548DEC00575216 /* CLGeocoderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLGeocoderExtension.swift; sourceTree = "<group>"; };
 		C99AC8F9225496C900575216 /* LayerConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerConfigurator.swift; sourceTree = "<group>"; };
 		C99AC8FB22549EE500575216 /* ALLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALLabel.swift; sourceTree = "<group>"; };
+		C99AC8FD225B3D4B00575216 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		C99AC8FF225B502B00575216 /* DictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
+		C99AC90B225C4AAC00575216 /* SequenceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtension.swift; sourceTree = "<group>"; };
+		C99AC915225D8A1700575216 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +192,7 @@
 				C9878C2522535058005297FD /* Device */,
 				C9878C0022530F1E005297FD /* Log */,
 				C9878C282253522A005297FD /* Math */,
+				C99AC914225D8A0700575216 /* Networking */,
 				C9878C1F22534D8C005297FD /* Storage */,
 				C9878C2222534EF5005297FD /* Time */,
 				C9878C0B22533133005297FD /* UI */,
@@ -213,11 +222,14 @@
 		C9878C05225310EE005297FD /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				C99AC8FD225B3D4B00575216 /* ArrayExtension.swift */,
 				C9878C1022534194005297FD /* CGFloatExtension.swift */,
 				C9878C0122530F6B005297FD /* DateExtension.swift */,
 				C9878C03225310C2005297FD /* DateFormatterExtension.swift */,
+				C99AC8FF225B502B00575216 /* DictionaryExtension.swift */,
 				C9878C0922531533005297FD /* FileManagerExtension.swift */,
 				C9878C142253486D005297FD /* NSObjectExtension.swift */,
+				C99AC90B225C4AAC00575216 /* SequenceExtension.swift */,
 				C9878C07225314C9005297FD /* StringExtension.swift */,
 			);
 			path = Foundation;
@@ -300,6 +312,14 @@
 				C9878C4022545E0A005297FD /* AuthManager.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		C99AC914225D8A0700575216 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C99AC915225D8A1700575216 /* APIClient.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -442,13 +462,17 @@
 				C9878BF822530A1E005297FD /* LogTextView.swift in Sources */,
 				C9878C4122545E0A005297FD /* AuthManager.swift in Sources */,
 				C99AC8F822548DEC00575216 /* CLGeocoderExtension.swift in Sources */,
+				C99AC900225B502B00575216 /* DictionaryExtension.swift in Sources */,
 				C9878C4322546963005297FD /* CLLocationManagerExtension.swift in Sources */,
+				C99AC90C225C4AAC00575216 /* SequenceExtension.swift in Sources */,
 				C9878C3022535A8B005297FD /* UICollectionViewExtension.swift in Sources */,
 				C979AB8E22195FE6009A2531 /* AppDelegate.swift in Sources */,
 				C9878C1122534195005297FD /* CGFloatExtension.swift in Sources */,
 				C9878C3822535C29005297FD /* UITableViewExtension.swift in Sources */,
 				C9878BFB22530AD1005297FD /* UIColorExtension.swift in Sources */,
 				C9878C17225349A6005297FD /* ALNavigationController.swift in Sources */,
+				C99AC8FE225B3D4B00575216 /* ArrayExtension.swift in Sources */,
+				C99AC916225D8A1700575216 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
