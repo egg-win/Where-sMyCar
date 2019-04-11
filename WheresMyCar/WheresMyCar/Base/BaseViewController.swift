@@ -10,6 +10,10 @@ import UIKit
 
 class BaseViewController: UIViewController {
     // MARK: - ViewController lifecycle
+    deinit {
+        printLog("\(self.className) deinit")
+    }
+    
     override func loadView() {
         super.loadView()
         printLog("\(self.className) loadView")

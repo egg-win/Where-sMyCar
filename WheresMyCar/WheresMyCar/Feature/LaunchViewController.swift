@@ -13,6 +13,7 @@ class LaunchViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // FIXME: - networking demo code
         let request = APIRequest(method: .get, path: .posts)
         APIClient().perform(request) { (result) in
             switch result {

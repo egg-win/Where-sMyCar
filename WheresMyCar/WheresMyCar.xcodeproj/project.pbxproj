@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2EC126C908D71CC7074688C1 /* Pods_WheresMyCar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC1744485064F38E2A41D66 /* Pods_WheresMyCar.framework */; };
+		C94180CA225EE5980074E344 /* LocalDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94180C9225EE5980074E344 /* LocalDatabaseManager.swift */; };
 		C979AB8E22195FE6009A2531 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979AB8D22195FE6009A2531 /* AppDelegate.swift */; };
 		C979AB9522195FE7009A2531 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C979AB9422195FE7009A2531 /* Assets.xcassets */; };
 		C979AB9822195FE7009A2531 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C979AB9622195FE7009A2531 /* LaunchScreen.storyboard */; };
@@ -51,12 +52,15 @@
 		C99AC900225B502B00575216 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99AC8FF225B502B00575216 /* DictionaryExtension.swift */; };
 		C99AC90C225C4AAC00575216 /* SequenceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99AC90B225C4AAC00575216 /* SequenceExtension.swift */; };
 		C99AC916225D8A1700575216 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99AC915225D8A1700575216 /* APIClient.swift */; };
+		C99AC95A225ED6E200575216 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99AC959225ED6E200575216 /* DatabaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2DF81B0FEBEFF338BFCD5A2B /* Pods-WheresMyCar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WheresMyCar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WheresMyCar/Pods-WheresMyCar.debug.xcconfig"; sourceTree = "<group>"; };
 		3D01D3FCAFC8A060FF2CD35E /* Pods-WheresMyCar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WheresMyCar.release.xcconfig"; path = "Pods/Target Support Files/Pods-WheresMyCar/Pods-WheresMyCar.release.xcconfig"; sourceTree = "<group>"; };
 		9EC1744485064F38E2A41D66 /* Pods_WheresMyCar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WheresMyCar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C94180C5225EE4E00074E344 /* WheresMyCar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WheresMyCar-Bridging-Header.h"; sourceTree = "<group>"; };
+		C94180C9225EE5980074E344 /* LocalDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabaseManager.swift; sourceTree = "<group>"; };
 		C979AB8A22195FE6009A2531 /* WheresMyCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WheresMyCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C979AB8D22195FE6009A2531 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C979AB9422195FE7009A2531 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 		C99AC8FF225B502B00575216 /* DictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 		C99AC90B225C4AAC00575216 /* SequenceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtension.swift; sourceTree = "<group>"; };
 		C99AC915225D8A1700575216 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		C99AC959225ED6E200575216 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +175,7 @@
 				C979AB9422195FE7009A2531 /* Assets.xcassets */,
 				C979AB9622195FE7009A2531 /* LaunchScreen.storyboard */,
 				C979AB9922195FE7009A2531 /* Info.plist */,
+				C94180C5225EE4E00074E344 /* WheresMyCar-Bridging-Header.h */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -189,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				C9878C3F22545DF9005297FD /* Auth */,
+				C99AC957225ED6A900575216 /* Database */,
 				C9878C2522535058005297FD /* Device */,
 				C9878C0022530F1E005297FD /* Log */,
 				C9878C282253522A005297FD /* Math */,
@@ -322,6 +329,15 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		C99AC957225ED6A900575216 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				C99AC959225ED6E200575216 /* DatabaseManager.swift */,
+				C94180C9225EE5980074E344 /* LocalDatabaseManager.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -334,6 +350,7 @@
 				C979AB8722195FE6009A2531 /* Frameworks */,
 				C979AB8822195FE6009A2531 /* Resources */,
 				C9878BF422530942005297FD /* ShellScript */,
+				DF2F312F5052F714B8E5624A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -356,6 +373,7 @@
 				TargetAttributes = {
 					C979AB8922195FE6009A2531 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -413,17 +431,31 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-			);
-			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		DF2F312F5052F714B8E5624A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WheresMyCar/Pods-WheresMyCar-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WheresMyCar/Pods-WheresMyCar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -452,6 +484,7 @@
 				C9878C0D22533157005297FD /* ThemeConfigurator.swift in Sources */,
 				C99AC8FC22549EE500575216 /* ALLabel.swift in Sources */,
 				C9878C2A2253523C005297FD /* MathHelper.swift in Sources */,
+				C99AC95A225ED6E200575216 /* DatabaseManager.swift in Sources */,
 				C9878C0222530F6B005297FD /* DateExtension.swift in Sources */,
 				C9878C04225310C2005297FD /* DateFormatterExtension.swift in Sources */,
 				C9878C2122534DA4005297FD /* LocalStorageManager.swift in Sources */,
@@ -468,6 +501,7 @@
 				C9878C3022535A8B005297FD /* UICollectionViewExtension.swift in Sources */,
 				C979AB8E22195FE6009A2531 /* AppDelegate.swift in Sources */,
 				C9878C1122534195005297FD /* CGFloatExtension.swift in Sources */,
+				C94180CA225EE5980074E344 /* LocalDatabaseManager.swift in Sources */,
 				C9878C3822535C29005297FD /* UITableViewExtension.swift in Sources */,
 				C9878BFB22530AD1005297FD /* UIColorExtension.swift in Sources */,
 				C9878C17225349A6005297FD /* ALNavigationController.swift in Sources */,
@@ -611,6 +645,7 @@
 			baseConfigurationReference = 2DF81B0FEBEFF338BFCD5A2B /* Pods-WheresMyCar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2ANP248JYW;
 				INFOPLIST_FILE = "WheresMyCar/Supporting Files/Info.plist";
@@ -621,6 +656,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.demo.SideProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WheresMyCar/Supporting Files/WheresMyCar-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -631,6 +668,7 @@
 			baseConfigurationReference = 3D01D3FCAFC8A060FF2CD35E /* Pods-WheresMyCar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2ANP248JYW;
 				INFOPLIST_FILE = "WheresMyCar/Supporting Files/Info.plist";
@@ -641,6 +679,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.demo.SideProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WheresMyCar/Supporting Files/WheresMyCar-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
