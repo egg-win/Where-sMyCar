@@ -32,7 +32,13 @@ class SettingsViewController: BaseViewController {
             DatabaseColumn(name: "age3", dataType: .integer, canNull: true, isPrimaryKey: false)
             ], identifierMode: .none)
         
-        localDatabaseManager.insertData(into: .demoTable, columnValues: ["name": "Allen",
+        for i in 10...50 {
+            localDatabaseManager.insertData(into: .demoTable, columnValues: ["name": "Allen\(i)",
+                                                                             "height": Double.random(in: 100.0..<190.0),
+                                                                             "age": i], identifierMode: .serial)
+        }
+        
+        localDatabaseManager.insertData(into: .demoTable, columnValues: ["name": "John",
                                                                          "height": 184.5,
                                                                          "age": 31], identifierMode: .serial)
         localDatabaseManager.insertData(into: .demoTable2, columnValues: ["name2": "Allen",
@@ -43,7 +49,15 @@ class SettingsViewController: BaseViewController {
                                                                           "height3": 184.5,
                                                                           "age3": 31], identifierMode: .none)
         
-        localDatabaseManager.updateData(from: .demoTable, columnValues: ["height": 150.0],
-                                        conditionColumnValues: [DatabaseConditionColumnValue(condition: .and, column: "name", value: "Allen")])
+        localDatabaseManager.updateData(at: .demoTable, columnValues: ["height": 10.0],
+                                        conditionColumnValues: [DatabaseConditionColumnValue(column: "name", operatorType: .equalTo, value: "Allen20")])
+        
+        let localDataProvider = LocalDataProvider.shared
+        let user1 = localDataProvider.queryAllUser()
+        printLog("user1 -> \(user1)", level: .log)
+        let user2 = localDataProvider.queryUser(withHeight: 120)
+        printLog("user2 -> \(user2)", level: .log)
+        
+        localDatabaseManager.deleteData(from: .demoTable, conditionColumnValues: [DatabaseConditionColumnValue(column: "name", operatorType: .equalTo, value: "John")])
     }
 }

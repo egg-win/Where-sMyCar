@@ -131,7 +131,7 @@ class PinCarViewController: BaseViewController {
     override func setupData() {
         super.setupData()
         
-        let carLocation = LocalStorageManager.shared.location()
+        let carLocation = LocalDataProvider.shared.location()
         guard let latitude = carLocation.latitude, latitude != 0.0, let longitude = carLocation.longitude, longitude != 0.0  else {
             carStatus = .unpark
             return
